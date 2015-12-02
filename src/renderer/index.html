@@ -5,11 +5,15 @@
   <link rel="stylesheet" href="./index.css">
 <body>
 
-<div data-bind="foreach: views" style="height:100%">
-  <webview src="https://gmail.com/" style="height: 90%" data-bind="event: {'new-window': $parent.newWindow}"></webview>  
-</div>
+<div class="window">
+  <div class="tab-group" data-bind="foreach: tabs">
+    <div data-bind="css: css, text: title, command: click"></div>
+  </div>
+  <div class="window-content" data-bind="foreach: views">
+    <webview src="https://gmail.com/" data-bind="style: {top: isActive ? '0': '-9999px', bottom: isActive ? '0px' : '', left: '0px', right: '0px', position: 'absolute'}, attr: {id: uuid, partition: partition}, event: {'new-window': $parent.newWindow, 'dom-ready': setTitle}"></webview>
+  </div>
 
-<!--attr: {partition: partition}-->
+</div>
 
 <script>
   window.onerror = function(message, file, line, column, err) {
@@ -17,8 +21,6 @@
   }
   Rx = require('rx');
   wx = require('../../node_modules/webrx/dist/web.rx');
-  // require('coffee-script/register');
-  // require('babel-core/register');
   require('./index.js');
 </script>
 </body>
