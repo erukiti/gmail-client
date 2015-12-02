@@ -1,0 +1,18 @@
+{
+  "name": "gmail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/browser/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-prebuilt": "^0.35.2",
+    "rx": "^4.0.7",
+    "uuid-v4": "^0.1.0",
+    "webrx": "^1.4.3"
+  }
+}
